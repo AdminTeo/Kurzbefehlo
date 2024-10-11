@@ -1,0 +1,272 @@
+/*________________________________________________ Fonts / Design unten __________________________________*/
+    body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin : 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+    h1 {
+    /* Titel schrift */
+    margin-top: 20px;
+    font-size: 30px;
+    }
+
+    p {
+    /* Schrift grau */
+    font-size: 17px;
+    color: #666;
+    }
+
+    p em{
+    /* Untertitel */
+    font-style: italic;
+    font-size: 14px;
+    }
+
+.copyright-banner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #cfcfcf;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+/*________________________________________________ Inhalt _________________________________________*/
+
+.container {
+    /* Hauptcontainer */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    border-radius: 35px;
+    width: 80%;
+    max-width: 1300px;
+    min-height: 500px;
+    text-align: center;
+    padding: 20px;
+}
+
+.grid-container {
+    /* Tabelle - Spacing fuer .button */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Immer 4 Spalten */
+    gap: 10px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 35px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.button {
+    /* interactive elemente */
+    position: relative;
+    display: block; /* Um an .container anzupassen */
+    background-color: #ddd;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.2s ease;
+    width: auto;
+    height: auto;
+    min-height: 60px;
+    overflow: hidden; /* Text wird abgeschnitten */
+}
+
+.button:hover {
+    /* Hover Funktion für .button */
+    transform: scale(1.07);  /* 107% Größer / problem bei width*/
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.button::before {
+    /* Text auf - before .button */
+    content: attr(data-text);
+    position: absolute;
+    bottom: 15%;
+    left: 7%; 
+    color: #333;
+    font-size: 18px;
+    font-style: normal;
+}
+
+.hover-button {
+    /* Zweiter Button auf .button */
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #00000038;
+    color: #000000;
+    padding: 9px 6px; /* Spacing für rundung */
+    border-radius: 100px; /* Runde Ecken = Kreis */
+    font-size: 13px;
+    display: none;     /* versteckt */
+}
+
+.button:hover .hover-button {
+    /* hbutton soll nur angezeigt werden, wenn .button hover = true*/
+    display: flex;
+    transition: transform 0.25s ease, box-shadow 0.2s ease;
+}
+
+.hover-button:hover {
+    /* Hover Funktion für .hover-button */
+    background-color: #cccaca7c;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+/*____________________________________________ Dropdown menü (internet) _________________________________________*/
+
+
+
+/*______________________________________ Icons ________________________________ */
+
+.button.stundenplan::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 45px;
+    height: 45px; 
+    background-image: url('stundenplan.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.wochenplan::after {
+    content: "";
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    width: 50px;
+    height: 50px; 
+    background-image: url('wochenplan.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.aufgaben::after {
+    content: "";
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    width: 45px;
+    height: 45px; 
+    background-image: url('aufgaben.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.airdrop::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 45px;
+    height: 45px; 
+    background-image: url('airdrop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.bild-teilen::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 43px;
+    height: 43px; 
+    background-image: url('bild-teilen.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.gute-nacht::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 41px;
+    height: 41px; 
+    background-image: url('gute-nacht.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.break-time::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 42px;
+    height: 42px; 
+    background-image: url('break-time.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.button.nach-hause::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 45px;
+    height: 45px; 
+    background-image: url('nach-hause.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+/*____________________________________________________ Farben _________________________________________*/
+.stundenplan {
+    background-color: gray;
+}
+
+.wochenplan {
+    background-color: #af92d4;
+}
+
+.aufgaben {
+    background-color: #ee756c;
+}
+
+.airdrop {
+    background-color: #65a6f0;
+}
+
+.bild-teilen {
+    background-color: #f1bf73;
+}
+
+.gute-nacht {
+    background-color: #5665aa;
+}
+
+.break-time {
+    background-color: #dfda55;
+}
+
+.nach-hause {
+    background-color: #9ad66c;
+}
