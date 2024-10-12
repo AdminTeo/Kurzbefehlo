@@ -6,28 +6,6 @@
     <title>Kurzbefehlo</title>
     <!-- CSS-Datei Link -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- JavaScript-Code für Dropdown-Menü -->
-    <script>
-        function toggleDropdown(button) {
-            const dropdown = button.nextElementSibling;
-            dropdown.classList.toggle('show');
-        }
-    
-        window.onclick = function(event) {
-            if (!event.target.matches('.hover-button')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
-    
-
 </head>
 <body>
 
@@ -38,40 +16,74 @@
 
         <h1><center>Kurzbefehl Vorschlagsverzeichnis</center></h1>
         <p><center>Kurzbefehle einfach gemacht!</center></p>
+
         <!-- Tabelle mit Buttons -->
         <div class="grid-container">
-            <a href="/unterverzeichnis1.html" class="button stundenplan" data-text="Stundenplan">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
+            <!-- Erste 4 Buttons mit Dropdown-Menü -->
+            <div class="dropdown">
+                <a href="/unterverzeichnis1.html" class="button stundenplan" data-text="Stundenplan">
+                </a>
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
+                <div class="dropdown-content">
+                    <a href="#" id="copyLink1" onclick="copyToClipboard(this, 'hier wäre der iCloud Link zu sehen')">iCloud Link Kopieren <span class="checkmark" style="display: none;">✔</span></a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="/unterverzeichnis2.html" class="button wochenplan" data-text="Wochenplan">
+                </a>
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
+                <div class="dropdown-content">
+                    <a href="#" id="copyLink2" onclick="copyToClipboard(this, 'hier wäre der iCloud Link zu sehen')">iCloud Link Kopieren <span class="checkmark" style="display: none;">✔</span></a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="/unterverzeichnis3.html" class="button aufgaben" data-text="Aufgaben">
+                </a>
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
+                <div class="dropdown-content">
+                    <a href="#" id="copyLink3" onclick="copyToClipboard(this, 'hier wäre der iCloud Link zu sehen')">iCloud Link Kopieren <span class="checkmark" style="display: none;">✔</span></a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <a href="/unterverzeichnis4.html" class="button airdrop" data-text="AirDrop">
+                </a>
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
+                <div class="dropdown-content">
+                    <a href="#" id="copyLink4" onclick="copyToClipboard(this, 'hier wäre der iCloud Link zu sehen')">iCloud Link Kopieren <span class="checkmark" style="display: none;">✔</span></a>
+                </div>
+            </div>
+        
+            <!-- Letzte 4 Buttons ohne Dropdown -->
+            <a href="/unterverzeichnis5.html" class="button bild-teilen" data-text="Bild Teilen">
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
             </a>
-            <a href="/unterverzeichnis2.html" class="button wochenplan" data-text ="Wochenplan">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
+            <a href="/unterverzeichnis5.html" class="button gute-nacht" data-text="Gute Nacht">
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
             </a>
-            <a href="/unterverzeichnis3.html" class="button aufgaben" data-text ="Aufgaben">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
+            <a href="/unterverzeichnis5.html" class="button break-time" data-text="Break Time">
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
             </a>
-            <a href="/unterverzeichnis4.html" class="button airdrop" data-text ="AirDrop">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
-            </a>
-            <a href="/unterverzeichnis5.html" class="button bild-teilen" data-text ="Bild Teilen">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
-            </a>
-            <a href="/unterverzeichnis5.html" class="button gute-nacht" data-text ="Gute Nacht">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
-            </a>
-            <a href="/unterverzeichnis5.html" class="button break-time" data-text ="Break Time">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
-            </a>
-            <a href="/unterverzeichnis5.html" class="button nach-hause" data-text ="Nach Hause">
-                <span class="hover-button"><center>&#8226; &#8226; &#8226;</center></span>
+            <a href="/unterverzeichnis5.html" class="button nach-hause" data-text="Nach Hause">
+                <span class="hover-button">&#8226; &#8226; &#8226;</span>
             </a>
         </div>
 
-        <div class ="copyright-banner">
+        <p><center>Willkommen auf <em>Kurzbefehlo</em>.</center></p>
+        <p><center>Das Verzeichnis für nützliche und oft komplizierte Kurzbefehle.</center></p>
+        <p><center>Unsere Plattform macht es einfacher, diese Befehle zu nutzen, ohne dass technisches Vorwissen erforderlich ist.</center></p>
+        <p><center>Entdecken sie neue möglichkeiten um Kurzbefehle zu nutzen und ihren Alltag zu erleichtern.</center></p>
+        <p><center>Ihr Kurzbefehlo Team ; ).</center></p>
+
+        <div class="copyright-banner">
             <p><em>&copy; 2024 Kurzbefehlo, Alle Rechte Vorbehalten</em></p>
         </div>
-
-
     </div>
+
+    <audio id="copySound" src="appaysound.mp3"></audio>
+    <script src="script.js"></script>
 
 </body>
 </html>

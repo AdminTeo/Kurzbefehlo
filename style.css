@@ -1,36 +1,31 @@
-/*________________________________________________ Fonts / Design unten __________________________________*/
-    body {
+/*________________________________________________ Fonts / Design unten (banner) __________________________________*/
+body {
     font-family: Arial, sans-serif;
     background-color: white;
-    margin : 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    }
+}
 
-    h1 {
-    /* Titel schrift */
+h1 {
     margin-top: 20px;
     font-size: 30px;
-    }
+}
 
-    p {
-    /* Schrift grau */
-    font-size: 17px;
+p {
+    font-size: 19px;
     color: #666;
-    }
+    margin-bottom: 5px;
+}
 
-    p em{
-    /* Untertitel */
+p em {
     font-style: italic;
     font-size: 14px;
-    }
+}
 
 .copyright-banner {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     background-color: #cfcfcf;
     padding: 10px;
@@ -39,7 +34,9 @@
     bottom: 0%;
     left: 0%;
     right: 0%;
+    box-shadow: 0 20px 0px rgba(0, 0, 0, 0.4);
 }
+
 
 /*________________________________________________ Inhalt _________________________________________*/
 
@@ -52,8 +49,10 @@
     width: 80%;
     max-width: 1300px;
     min-height: 500px;
+    min-width: 240px;
     text-align: center;
     padding: 20px;
+    overflow: hidden;
 }
 
 .grid-container {
@@ -66,6 +65,14 @@
     border-radius: 35px;
     margin-top: 25px;
     margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.13);
+}
+
+/* Für Smartphones und kleine Bildschirme */
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 Spalten auf mobilen Geräten */
+    }
 }
 
 .button {
@@ -83,16 +90,16 @@
     transition: transform 0.25s ease, box-shadow 0.2s ease;
     width: auto;
     height: auto;
-    min-height: 60px;
+    min-height: 65px;
+    min-width: 100px;
     overflow: hidden; /* Text wird abgeschnitten */
 }
 
 .button:hover {
     /* Hover Funktion für .button */
-    transform: scale(1.07);  /* 107% Größer / problem bei width*/
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.06);  /* 107% Größer / problem bei width*/
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.26);
 }
-
 
 .button::before {
     /* Text auf - before .button */
@@ -102,30 +109,29 @@
     left: 7%; 
     color: #333;
     font-size: 18px;
-    font-style: normal;
 }
 
 .hover-button {
-    /* Zweiter Button auf .button */
     position: absolute;
+    pointer-events: auto;
     top: 8px;
     right: 8px;
     background-color: #00000038;
     color: #000000;
-    padding: 9px 6px; /* Spacing für rundung */
-    border-radius: 100px; /* Runde Ecken = Kreis */
+    padding: 9px 6px;
+    border-radius: 100px;
     font-size: 13px;
-    display: none;     /* versteckt */
+    cursor: pointer;
+    z-index: 2;
+    pointer-events: auto; /* Ermöglicht das Klicken auf das Hover-Button */
 }
 
 .button:hover .hover-button {
-    /* hbutton soll nur angezeigt werden, wenn .button hover = true*/
     display: flex;
     transition: transform 0.25s ease, box-shadow 0.2s ease;
 }
 
 .hover-button:hover {
-    /* Hover Funktion für .hover-button */
     background-color: #cccaca7c;
     color: #000;
     transform: scale(1.1);
@@ -133,6 +139,50 @@
 }
 
 /*____________________________________________ Dropdown menü (internet) _________________________________________*/
+
+/* Dropdown-Menü Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /* Standardmäßig verborgen */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 190px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 0;
+    top: -35px;
+    border-radius: 13px;
+}
+
+.dropdown-content.show {
+    display: block; /* Wird nur gezeigt, wenn die Klasse .show hinzugefügt wird */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 13px;
+}
+
+/* Zeigt das Dropdown-Menü an, wenn die Maus über .hover-button ist */
+.hover-button:hover + .dropdown-content {
+    display: block; /* Standardmäßiges Anzeigen bei Hover */
+}
+
+/* Menü bleibt offen, während Maus darüber ist */
+.dropdown-content:hover {
+    display: block;
+}
 
 
 
@@ -234,39 +284,12 @@
     background-repeat: no-repeat;
 }
 
-
-
-
-
 /*____________________________________________________ Farben _________________________________________*/
-.stundenplan {
-    background-color: gray;
-}
-
-.wochenplan {
-    background-color: #af92d4;
-}
-
-.aufgaben {
-    background-color: #ee756c;
-}
-
-.airdrop {
-    background-color: #65a6f0;
-}
-
-.bild-teilen {
-    background-color: #f1bf73;
-}
-
-.gute-nacht {
-    background-color: #5665aa;
-}
-
-.break-time {
-    background-color: #dfda55;
-}
-
-.nach-hause {
-    background-color: #9ad66c;
-}
+.stundenplan { background-color: gray; }
+.wochenplan { background-color: #af92d4; }
+.aufgaben { background-color: #ee756c; }
+.airdrop { background-color: #65a6f0; }
+.bild-teilen { background-color: #f1bf73; }
+.gute-nacht { background-color: #5665aa; }
+.break-time { background-color: #dfda55; }
+.nach-hause { background-color: #9ad66c; }
